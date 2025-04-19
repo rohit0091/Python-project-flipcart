@@ -1,0 +1,97 @@
+#steps to install Django version properly in vs code
+(to start a new terminal...ctrl+`)
+
+
+python -m venv venv
+
+#(virtual env create)
+
+venv\scripts\activate
+#activates virtual env
+
+pip install Django
+#install Django
+
+django-admin startproject testcart
+
+cd testcart
+#(venv) E:\django\testcart>
+
+python manage.py startapp Electronics
+
+python manage.py runserver
+
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+
+
+
+
+
+
+
+
+
+
+
+ {% for pro in prod %}
+{{ pro.name }}
+${{ pro.price }}
+{{ pro.description }}
+({{ pro.stock }})
+<a href=""{% url 'edit_product' pro.id %}">Edit</a>
+ {% endfor %}
+
+<form method="post">
+                {% csrf_token %}
+                <div>
+                    {{ fm.as_p }}
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-plus"></i>
+                    Add Product
+                </button>
+            </form>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Product</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete "{{ prod.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'home' %}">Cancel</a>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
